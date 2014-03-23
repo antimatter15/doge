@@ -8,6 +8,7 @@ im = Image.open('template.jpg')
 draw = ImageDraw.Draw(im)
 
 old_positions = []
+colors = ['Red', 'Blue', 'Brown', 'Green', 'DarkViolet', 'DarkMagenta', 'Teal']
 
 for arg in sys.argv:
 	if not 'doge.py' in arg:
@@ -19,10 +20,8 @@ for arg in sys.argv:
 					pos = None
 					break
 		old_positions.append(pos)
-		# color = "hsl(" + str(random.randint(1, 360)) + ", 76%, 45%)"
-		color = (random.randint(50, 255), random.randint(50, 255), random.randint(50, 255))
+		color = random.choice(colors)
 
 		draw.text(pos, arg,  font = font, fill = color)
 
 im.show()
-
